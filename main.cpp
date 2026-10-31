@@ -1,0 +1,4 @@
+#include "contract.hpp"
+#include <iostream>
+using namespace witness;
+int main(int argc,char**){if(argc!=1){std::cerr<<"Usage: rtl-witness (bounded authored fixture JSON)\n";return 2;}std::cout<<"{\"scope\":\"C++ behavioral exploration only; authored SV unexecuted\",\"rtl_integration\":\"unverified\",\"counter_cases\":[";bool comma=false;for(auto v:{Variant::saturating,Variant::wrapping,Variant::inverted_reset,Variant::ignored_enable}){if(comma)std::cout<<',';comma=true;std::cout<<search(3,10,v).json();}std::cout<<"],\"signed_extension\":{\"input_width\":3,\"output_width\":6,\"cases_examined\":8,\"mismatches\":[";comma=false;for(unsigned i=0;i<8;++i){unsigned a=extend(i,3,6,true),b=extend(i,3,6,false);if(a!=b){if(comma)std::cout<<',';comma=true;std::cout<<"{\"input\":"<<i<<",\"sign_extended\":"<<a<<",\"zero_extended\":"<<b<<'}';}}std::cout<<"]}}\n";}

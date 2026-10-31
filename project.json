@@ -1,0 +1,9 @@
+{
+  "company": "Altera",
+  "title": "RTL Migration Witness",
+  "test_command": "make test",
+  "demo_command": "make demo",
+  "scope": "Bounded C++ behavioral contracts only; authored SV not simulated; no formal/Quartus validation",
+  "implemented": true,
+  "integration_status": "unverified"
+}
